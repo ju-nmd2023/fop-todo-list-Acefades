@@ -53,7 +53,9 @@ function createTaskElement(task) {
 function saveTasks() {
   let tasks = [];
   list.querySelectorAll("li").forEach(function (item) {
-    tasks.push(item.textContent.replace("Delete", "").trim());
+    tasks.push(
+      item.textContent.replace("Delete", "").replace("Check", "").trim()
+    );
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }

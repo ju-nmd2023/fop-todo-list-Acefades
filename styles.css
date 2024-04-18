@@ -32,7 +32,7 @@ li {
   padding: 5px 10px;
 }
 
-.checkTask{
-    text-decoration-line: line-through;
+.checkTask {
+  background-color: green;
 
 }
