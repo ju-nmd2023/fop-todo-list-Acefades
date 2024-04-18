@@ -1,0 +1,15 @@
+body {
+  background-color: rgb(234, 219, 200);
+}
+
+h1 {
+  color: aliceblue;
+}
+
+.box {
+  padding-bottom: 20%;
+  background-color: rgb(16, 44, 87);
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
