@@ -25,3 +25,14 @@ li {
   display: flex;
   justify-content: space-between;
 }
+
+.deleteTask {
+  border: none;
+  background-color: red;
+  padding: 5px 10px;
+}
+
+.checkTask{
+    text-decoration-line: line-through;
+
+}
