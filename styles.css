@@ -7,9 +7,21 @@ h1 {
 }
 
 .box {
-  padding-bottom: 20%;
+  padding-bottom: 10%;
   background-color: rgb(16, 44, 87);
   text-align: center;
   margin: 0 auto;
-  width: 50%;
+  width: 30%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+li {
+  margin: 5px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
 }

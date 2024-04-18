@@ -3,9 +3,9 @@ const taskInput = document.getElementById("taskInput");
 const list = document.getElementById("list");
 
 function createTask() {
-  const task = taskInput.value.trim();
+  const task = taskInput.value.trim(); // not storing blankspace
   if (task) {
-    createTaskElement();
+    createTaskElement(task); // pass the task to createTaskElement
     taskInput.value = "";
   } else {
     alert("Enter your task");
@@ -15,5 +15,9 @@ function createTask() {
 createTaskButton.addEventListener("click", createTask);
 
 function createTaskElement(task) {
-  // Implementation of createTaskElement function goes here
+  const listItem = document.createElement("li");
+  listItem.textContent = task; // adds task from above to "li" element
+
+  list.appendChild(listItem);
 }
+
