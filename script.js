@@ -2,11 +2,14 @@ const createTaskButton = document.getElementById("createTask");
 const taskInput = document.getElementById("taskInput");
 const list = document.getElementById("list");
 
+loadTasks();
+
 function createTask() {
   const task = taskInput.value.trim(); // not storing blankspace
   if (task) {
     createTaskElement(task); // pass the task to createTaskElement
     taskInput.value = "";
+    saveTasks();
   } else {
     alert("Enter your task");
   }
@@ -21,3 +24,16 @@ function createTaskElement(task) {
   list.appendChild(listItem);
 }
 
+//local storage
+function saveTasks() {
+  let tasks = [];
+  list.querySelectorAll("li").forEach(function (item) {
+    tasks.push(item.textContent.trim());
+  });
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach(createTaskElement);
+}
