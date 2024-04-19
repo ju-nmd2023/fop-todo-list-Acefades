@@ -7,11 +7,12 @@ h1 {
 }
 
 .box {
+  border-radius: 10px;
   padding-bottom: 10%;
   background-color: rgb(16, 44, 87);
   text-align: center;
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
 }
 
 ul {
@@ -20,19 +21,27 @@ ul {
 }
 
 li {
-  margin: 5px;
-  background-color: aliceblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  border-radius: 2px;
+  margin: 1px;
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
 }
 
 .deleteTask {
-  border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 1px;
+  font-size: 17px;
+  color: black;
   background-color: red;
   padding: 5px 10px;
 }
 
 .checkTask {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  color: black;
   background-color: green;
-
 }
