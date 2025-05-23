@@ -17,9 +17,17 @@ function createTask() {
 
 createTaskButton.addEventListener("click", createTask);
 
-function createTaskElement(task) {
+function createTaskElement(task, checked = false) {
   const listItem = document.createElement("li");
-  listItem.textContent = task; // adds task from above to "li" element
+
+  // Use span for task text
+  const taskSpan = document.createElement("span");
+  taskSpan.textContent = task;
+  listItem.appendChild(taskSpan);
+
+  if (checked) {
+    listItem.classList.add("checkTask");
+  }
 
   // Delete button
   const deleteButton = document.createElement("button");
@@ -44,7 +52,7 @@ function createTaskElement(task) {
 
   // Add event listener for check button
   checkButton.addEventListener("click", function () {
-    listItem.className = "checkTask"; // Toggle class for the clicked list item
+    listItem.classList.toggle("checkTask");
     saveTasks(); // Update local storage after toggling checked state
   });
 }
@@ -53,14 +61,17 @@ function createTaskElement(task) {
 function saveTasks() {
   let tasks = [];
   list.querySelectorAll("li").forEach(function (item) {
-    tasks.push(
-      item.textContent.replace("Delete", "").replace("Check", "").trim()
-    );
+    // Get text from span
+    const taskText = item.querySelector("span").textContent;
+    const isChecked = item.classList.contains("checkTask");
+    tasks.push({ text: taskText, checked: isChecked });
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks.forEach(createTaskElement);
+  tasks.forEach(function (task) {
+    createTaskElement(task.text, task.checked);
+  });
 }
